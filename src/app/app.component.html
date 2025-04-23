@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="card mt-5 dashboard" style="align-items: center; padding: 10px; background-color: #11ba09;">
+    <h1>User Dashboard</h1>
+  </div>
+
+  <div class="card mt-5" style="padding: 20px;">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" class="form-group">
+
+      <div class="form-group">
+        <label for="name" style="padding: 5px;">User Name</label>
+        <input type="text" name="name" [(ngModel)]="user.name" id="name" class="form-control" placeholder="User Name" />
+      </div>
+
+      <div class="form-group">
+        <label for="password" style="padding: 5px;">User Password</label>
+        <input type="password" name="password" [(ngModel)]="user.password" id="password" class="form-control"
+          placeholder="User Password" />
+      </div>
+
+      <div class="form-group">
+        <label for="type" style="padding: 5px;">User Type</label>
+        <input type="type" name="type"  [(ngModel)]="user.type" id="type" class="form-control" placeholder="User Type" />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-success w-100" style="margin-top: 20px;" />
+      </div>
+    </form>
+
+  </div>
+
+
+  <div class="mt-5">
+    <table class="table table-bordered table-hover align-middle" style="width: 100%;">
+      <thead class="thead"> <!-- Table Heading -->
+        <tr> <!-- Row Heading -->
+          <th>UserId</th>
+          <th>User Name</th>
+          <th>Password</th>
+          <th>User Role</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let user of userDetails">         <!-- ngFor is like a for loop And we are taking user data to userDetails Array-->
+
+          <td> {{user.id}} </td>                      <!-- Table Data --><!-- {{Expression }} is called Interpolation in angular is used to display the data dynamically -->
+          <td> {{user.name}} </td>
+          <td> {{user.password}} </td>
+          <td> {{user.type}} </td>
+          <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="updateUser(user)">Update</button> </td>                                               <!-- ---\  sending user data to methods when button is clicked -->
+          <td> <button type="button" class="btn btn-danger" (click)="deleteUser(user)">Delete</button> </td> <!-- ---/     -->
+                                                          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Update Button trigger to update user data -->
+
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update User Data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form #updateForm="ngForm" (ngSubmit)="updateUserData()" class="form-group">
+
+            <div class="form-group">
+              <label for="updateUserId" style="padding: 5px;">User Id</label>
+              <input type="text" name="id" [(ngModel)]="userToUpdate.id" id="updateUserId" class="form-control" placeholder="User Id" disabled />
+            </div>
+            
+            <div class="form-group">
+              <label for="updateUserName" style="padding: 5px;">User Name</label>
+              <input type="text" name="name" [(ngModel)]="userToUpdate.name" id="updateUserName" class="form-control" placeholder="User Name" />
+            </div>  
+
+            <div class="form-group">
+              <label for="updateUserPassword" style="padding: 5px;">User Password</label>
+              <input type="password" name="password" [(ngModel)]="userToUpdate.password" id="updateUserPassword" class="form-control" placeholder="User Password" />
+            </div>
+
+            <div class="form-group">
+              <label for="updateUserType" style="padding: 5px;">User Type</label>
+              <input type="text" name="type" [(ngModel)]="userToUpdate.type" id="updateUserType" class="form-control" placeholder="User Type" />
+            </div>
+
+            <div class="form-group">
+              <input type="submit" value="Update" class="btn btn-primary w-100" style="margin-top: 20px;" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

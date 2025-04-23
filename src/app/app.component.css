@@ -1,0 +1,19 @@
+
+.dashboard{
+    background: linear-gradient(135deg, #003366, #1ABC9C);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-success {
+    background-color: #003366;
+    border-color: #003366;
+    color: #fff;
+  }
+
+  .table  {
+    background-color: #003366;
+    color: #fff;
+  }
