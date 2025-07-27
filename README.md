@@ -87,7 +87,7 @@ License
 Distributed under the MIT License. See the LICENSE file for details.
 
 Contact
-For questions or support, please contact [your-email@example.com]. Feel free to suggest improvements or report any issues.
+For questions or support, please contact [prithvirajkoparde@gmail.com]. Feel free to suggest improvements or report any issues.
 
 Acknowledgements
 Angular
